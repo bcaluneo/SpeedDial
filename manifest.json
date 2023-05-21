@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Speed Dial",
+  "version": "1.9",
+  "description": "Speed dial bookmark manager with customizable JSON context menu.",
+  "homepage_url": "https://bcaluneo.com",
+
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "speeddial@bcaluneo.com",
+      "strict_min_version": "42.0"
+    }
+  },
+
+  "browser_action": {
+    "browser_style": true
+  },
+
+  "permissions": [
+    "storage",
+    "downloads",
+    "browserSettings"
+  ]
+}

@@ -1,0 +1,240 @@
+:root {
+  --row_count: 3;
+}
+
+body {
+  background: #222222;
+  text-align: center;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+
+#clock {
+  cursor: default;
+}
+
+#context-menu {
+  position: fixed;
+  z-index: 10000;
+  width: 150px;
+  cursor: default;
+  background: #3F3D3D;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #777474;
+  border-radius: 5px;
+  display: none;
+  text-align: left;
+}
+
+#context-menu.visible {
+  display: block;
+}
+
+.editor {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+  position: absolute;
+  visibility: hidden;
+  background: #3F3D3D;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #777474;
+  border-radius: 5px;
+}
+
+.editor div {
+  padding: 4px 8px 4px 8px;
+  white-space: nowrap;
+  cursor: inherit;
+  user-select: none;
+  color:#AAAAAA;
+}
+
+.editor .editor-control-trash {
+  color: white;
+}
+
+.editor .editor-control-draggable {
+  cursor: grab;
+}
+
+.editor .editor-control-clickable {
+  cursor: pointer;
+}
+
+.editor .editor-control-clickable:hover {
+  color: white;
+}
+
+.editor .editor-control-draggable:hover {
+  color: white;
+}
+
+.editor i {
+  font-size: 32px;
+  cursor: inherit;
+  user-select: none;
+}
+
+#context-menu .secondary-menu {
+  position: absolute;
+  top: 0px;
+  z-index: inherit;
+  width: auto;
+  cursor: inherit;
+  text-align: inherit;
+  background: #3F3D3D;
+  border-width: inherit;
+  border-style: inherit;
+  border-color: inherit;
+  border-radius: inherit;
+  visibility: hidden;
+}
+
+#context-menu .item {
+  padding: 8px 10px;
+  font-size: 15px;
+  color: #eee;
+  background: #3F3D3D;
+  cursor: inherit;
+  border-radius: inherit;
+  white-space: nowrap;
+  display: flex;
+  user-select: none;
+}
+
+#context-menu hr {
+  width: 85%;
+}
+
+#context-menu img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#context-menu img:hover {
+  box-shadow: 0px 0px 5px #fff;
+  border-radius: 5px;
+}
+
+#context-menu .header {
+  padding-top: 5px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  color: #C92127;
+  cursor: inherit;
+  border-radius: inherit;
+  white-space: nowrap;
+  user-select: none;
+}
+
+#context-menu .item:hover {
+  background: #333333 !important;
+}
+
+#context-menu a {
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: white;
+  height: 100%;
+}
+
+#context-menu .menu-icon {
+  width: 100%;
+}
+
+#context-menu i {
+  font-size: 16px;
+  user-select: none;
+}
+
+#clock {
+  padding-top: 25px;
+  font-size: 36px;
+  user-select: none;
+}
+
+#tool {
+  padding-top: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+#tool img {
+  width: 32px;
+  height: 32px;
+  border-radius: 25px;
+}
+
+#container {
+  position: relative;
+  height: 100%;
+}
+
+#footer {
+  text-align: center;
+  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+#quick {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 75px;
+}
+
+#preview {
+  padding-top: 5px;
+}
+
+#preview img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.grid-container a {
+  text-decoration: none;
+  outline: none;
+}
+
+.grid-container {
+  margin: auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 40%;
+  height: 55%;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.grid-item {
+  overflow: hidden;
+  color: white;
+  background-color: black;
+  border-radius: 15px;
+  border: 2px solid #333333;
+  font-size: 15px;
+  text-align: center;
+}
+
+.grid-item:hover {
+  border: 2px solid #777777;
+}

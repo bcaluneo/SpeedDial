@@ -1,0 +1,7 @@
+*.zip
+jwt.txt
+/node_modules/
+*.xpi
+.web*
+/.vscode/
+server.js

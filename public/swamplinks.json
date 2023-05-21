@@ -1,0 +1,100 @@
+{
+  "menus": [
+    {
+      "type":"context-menu",
+      "parentId":"context-menu",
+      "id":"context-menu",
+      "items": [
+        {"id": "lab", "text": "Lab IPs", "hasMenu":true, "link":""},
+        {"id": "devops", "text": "DevOps", "hasMenu":true, "link":""},
+        {"id": "documentation", "text": "Documentation", "hasMenu":true, "link":""},
+        {"id": "customers", "text": "Customers", "hasMenu":true, "link":""},
+        {"id": "", "text": "SF Github", "hasMenu":false, "link":"https://github.com/SwampfoxInc"},
+        {"id": "", "text": "Swampticket", "hasMenu":false, "link":"http://swampticket.swampfox.com"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"context-menu",
+      "id":"lab-menu",
+
+      "items": [
+        {"id": "aep", "text": "AEPs", "hasMenu":true, "link":""},
+        {"id": "", "text": "ICX", "hasMenu":false, "link":"https://10.91.10.140:8443/drm"},
+        {"id": "", "text": "OCM", "hasMenu":false, "link":"https://10.91.11.94:8080/ocm"},
+        {"id": "", "text": "SFConfig", "hasMenu":false, "link":"https://10.91.10.140:8443/SwampfoxConfig"},
+        {"id": "", "text": "SFMonSvr", "hasMenu":false, "link":"https://10.91.10.140:8443/mon-svr-gui"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"lab-menu",
+      "id":"aep-menu",
+
+      "items": [
+        {"id": "", "text": "AEP 7.0.2", "hasMenu":false, "link":"https://10.91.2.93/VoicePortal/faces/main.jsf"},
+        {"id": "", "text": "AEP 7.2.3", "hasMenu":false, "link":"https://10.91.10.171/VoicePortal/faces/main.jsf"},
+        {"id": "", "text": "AEP 8.1.1", "hasMenu":false, "link":"https://10.91.11.180/VoicePortal/faces/main.jsf"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"context-menu",
+      "id":"devops-menu",
+
+      "items": [
+        {"id": "", "text": "Nexus", "hasMenu":false, "link":"https://nexus.devops-ci"},
+        {"id": "", "text": "Jenkins", "hasMenu":false, "link":"https://jenkins.devops-ci"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"context-menu",
+      "id":"documentation-menu",
+
+      "items": [
+        {"id": "", "text": "DRM SCXML", "hasMenu":false, "link":"https://swampfoxinc.atlassian.net/wiki/spaces/KB/pages/503349407/DRM+SCXML"},
+        {"id": "", "text": "JEXL Documentation", "hasMenu":false, "link":"https://swampfoxinc.atlassian.net/wiki/spaces/KB/pages/229933138/JEXL+Documentation"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"context-menu",
+      "id":"customers-menu",
+
+      "items": [
+        {"id": "questar", "text": "Dominion West", "hasMenu":true, "link":""},
+        {"id": "highmark", "text": "Highmark Wholecare", "hasMenu":true, "link":""}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"customers-menu",
+      "id":"questar-menu",
+
+      "items": [
+        {"id": "", "text": "Self-Svc IVR", "hasMenu":false, "link":"https://github.com/SwampfoxInc/DominionWest-IVR-SelfSvc"}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"customers-menu",
+      "id":"highmark-menu",
+
+      "items": [
+        {"id": "", "text": "Appstore", "hasMenu":false, "link":"https://appstore.gatewayhealthplan.com"},
+        {"id": "highmark-repos", "text": "Repos", "hasMenu":true, "link":""}
+      ]
+    },
+    {
+      "type":"secondary-menu",
+      "parentId":"highmark-menu",
+      "id":"highmark-repos-menu",
+
+      "items": [
+        {"id": "", "text": "Legacy IVR", "hasMenu":false, "link":"https://github.com/SwampfoxInc/SF_Gateway_Health_IVR"},
+        {"id": "", "text": "GateTech Connector", "hasMenu":false, "link":"https://github.com/SwampfoxInc/GHP_IVR_GatewayHealthGateTechConnector/"}
+      ]
+    }
+  ]
+}

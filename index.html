@@ -1,0 +1,142 @@
+<!-- Speed Dial style new page with atomic time -->
+<!-- Custom SwampLinks menu for Swampfox use. -->
+<!-- Copyright (C) Brendan Caluneo -->
+<html>
+
+<head>
+	<title>Speed Dial</title>
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="public/assets/newpage.css" />
+	<link rel="stylesheet" type="text/css" href="public/assets/modal.css" />
+	<link rel="stylesheet" type="text/css" href="public/assets/buttons.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+	<div id="clock">
+		<span id="Columbia_z161" style="font-size:36px">00</span>
+	</div>
+
+	<div id="tool">
+		<a href="https://play.typeracer.com/">
+			<img src="https://i.imgur.com/wRqt9NU.png">
+		</a>
+	</div>
+
+	<div id="tool">
+		<a href="https://messages.google.com/web">
+			<img src="https://i.imgur.com/Rnk7EDW.png">
+		</a>
+	</div>
+
+	<div id="tool">
+		<a href="https://gmail.com/">
+			<img src="https://i.imgur.com/YShBxiS.png">
+		</a>
+	</div>
+
+	<div class="grid-container">
+		<a href="https://www.hackforums.net/">
+			<div id="0" class="grid-item">
+				HackForums
+				<div id="preview"><img src="public/assets/previews/hf.png"></div>
+			</div>
+		</a>
+
+		<a href="https://www.youtube.com/">
+			<div id="1" class="grid-item">
+				YouTube
+				<div id="preview"><img src="public/assets/previews/yt.png"></div>
+			</div>
+		</a>
+
+		<a href="https://www.ebay.com/">
+			<div id="2" class="grid-item">
+				eBay
+				<div id="preview"><img src="public/assets/previews/ebay.png"></div>
+			</div>
+		</a>
+
+		<a href="https://www.reddit.com/">
+			<div id="3" class="grid-item">
+				Reddit
+				<div id="preview"><img src="public/assets/previews/reddit.png"></div>
+			</div>
+		</a>
+
+		<a href="https://www.news.google.com/">
+			<div id="4" class="grid-item">
+				Google News
+				<div id="preview"><img src="public/assets/previews/gnews.png"></div>
+			</div>
+		</a>
+
+		<a href="https://outlook.office.com/mail/">
+			<div id="5" class="grid-item">
+				Outlook
+				<div id="preview"><img src="public/assets/previews/outlook.png"></div>
+			</div>
+		</a>
+
+		<a href="https://swampfoxinc.atlassian.net/wiki/home">
+			<div id="6" class="grid-item">
+				Confluence
+				<div id="preview"><img src="public/assets/previews/confluence.png"></div>
+			</div>
+		</a>
+
+		<a href="https://github.com/bcaluneo">
+			<div id="7" class="grid-item">
+				Github
+				<div id="preview"><img src="public/assets/previews/github.png"></div>
+			</div>
+		</a>
+
+		<a href="https://app.smartsheet.com/b/home">
+			<div id="8" class="grid-item">
+				Smartsheet
+				<div id="preview"><img src="public/assets/previews/smartsheet.png"></div>
+			</div>
+		</a>
+	</div>
+
+	<div id="context-menu">
+	</div>
+
+	<div class="editor">
+		<div class="editor-control-trash" id="delete"><i id="delete-icon" class="material-icons">delete</i></div>
+		<div class="editor-control-draggable" id="editor-control-newItem" draggable="true"><i id="item-icon" class="material-icons">add_link</i></div>
+		<div class="editor-control-draggable" id="editor-control-newMenu" draggable="true"><i id="menu-icon" class="material-icons">playlist_add</i></div>
+		<div class="editor-control-draggable" id="editor-control-edit" draggable="true"><i id="menu-icon" class="material-icons">edit</i></div>
+		<div class="editor-control-clickable" id="editor-control-export" draggable="false"><i id="menu-icon" class="material-icons">file_download</i></div>
+		<div class="editor-control-clickable" id="editor-control-import" draggable="false"><i id="menu-icon" class="material-icons">file_upload</i></div>
+	</div>
+
+	<!-- <div id="add-item" class="modal">
+		<div class="modal-content">
+			<div class="inputs">
+				<label>Item Name</label>
+				<input type="text" placeholder="Item name" name="item-name">
+
+				<label>Item Link</label>
+				<input type="text" placeholder="Item link" name="item-name">
+			</div>
+
+			<div id="controls">
+				<button id="create">Create</button>
+				<button id="close">Close</button>
+			</div>
+		</div>
+	</div> -->
+
+	<div id="footer">
+		Time widget provided by:
+		<a href="https://time.is/Columbia" id="time_is_link" rel="nofollow">
+			Time.is
+		</a>
+	</div>
+
+	<script type="module" src="public/bundle.js"></script>
+</body>
+
+</html>
