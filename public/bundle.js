@@ -1323,6 +1323,64 @@ function setClock() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.initGrid = initGrid;
+
+// All the source code and shit related to controlling the speed dials.
+class DialContext {
+  Dials;
+}
+
+;
+
+class DialObject {
+  Title;
+  UUID;
+  Clicks;
+  Link;
+}
+
+;
+const dialGrid = document.getElementById("dial-grid"); // <div id="0" class="grid-item">
+// HackForums
+// </div>
+
+function initGrid() {
+  if (localStorage.getItem("DialContext") == null) {
+    fetch('public/dials.json').then(response => response.text()).then(responseText => {
+      let json = JSON.parse(responseText);
+      localStorage.setItem("DialContext", JSON.stringify(json));
+      json2html(localStorage.getItem("DialContext"));
+    });
+  } else {
+    json2html(localStorage.getItem("DialContext"));
+  }
+}
+
+function createDialHTML(dial) {
+  let div = document.createElement("div");
+  div.className = "grid-item";
+  div.id = dial.UUID;
+  div.textContent = dial.Title;
+  return div;
+}
+
+function json2html(json) {
+  var dials = JSON.parse(json).DialContext.Dials;
+
+  if (dials != undefined) {
+    dials.forEach(dial => {
+      var dialHtml = createDialHTML(dial);
+      dialGrid.appendChild(dialHtml);
+    });
+  }
+}
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.deleteItem = deleteItem;
 exports.init = init;
 exports.isEditing = isEditing;
@@ -1571,12 +1629,14 @@ function downloadMenuJSON() {
   });
 }
 
-},{"./menu":6,"./parser":7,"webextension-polyfill-ts":1}],5:[function(require,module,exports){
+},{"./menu":7,"./parser":8,"webextension-polyfill-ts":1}],6:[function(require,module,exports){
 "use strict";
 
 var Parser = _interopRequireWildcard(require("./parser"));
 
 var Editor = _interopRequireWildcard(require("./editor"));
+
+var Dial = _interopRequireWildcard(require("./dial"));
 
 var Menu = _interopRequireWildcard(require("./menu"));
 
@@ -1589,15 +1649,19 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 const APP_NAME = "Speed Dial";
 const contextMenu = document.getElementById("context-menu");
 (0, _clock.setClock)();
-Parser.initMenu(); // Overwrites the default right-click handler to display my custom menu.
+Parser.initMenu();
+Dial.initGrid(); // Overwrites the default right-click handler to display my custom menu.
 
 document.addEventListener("contextmenu", event => {
   event.preventDefault();
   if (Editor.isEditing()) return;
   Menu.hideAllMenus();
-  contextMenu.style.top = `${event.clientY}px`;
-  contextMenu.style.left = `${event.clientX}px`;
-  contextMenu.classList.add("visible");
+
+  if (event.target.className == "grid-item") {} else {
+    contextMenu.style.top = `${event.clientY}px`;
+    contextMenu.style.left = `${event.clientX}px`;
+    contextMenu.classList.add("visible");
+  }
 });
 document.addEventListener("click", event => {
   if (Editor.isEditing()) event.preventDefault();
@@ -1672,7 +1736,7 @@ document.addEventListener("click", event => {
   }
 });
 
-},{"./clock":3,"./editor":4,"./menu":6,"./parser":7}],6:[function(require,module,exports){
+},{"./clock":3,"./dial":4,"./editor":5,"./menu":7,"./parser":8}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1761,7 +1825,7 @@ function hideAllMenus() {
   hideSubMenus();
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1809,14 +1873,14 @@ class ItemObject {
 ;
 
 function initMenu() {
-  if (localStorage.getItem("swamplinks") == null) {
+  if (localStorage.getItem("MenuContext") == null) {
     fetch('public/swamplinks.json').then(response => response.text()).then(responseText => {
       let json = JSON.parse(responseText);
-      localStorage.setItem("swamplinks", JSON.stringify(json));
-      json2html(localStorage.getItem("swamplinks"));
+      localStorage.setItem("MenuContext", JSON.stringify(json));
+      json2html(localStorage.getItem("MenuContext"));
     });
   } else {
-    json2html(localStorage.getItem("swamplinks"));
+    json2html(localStorage.getItem("MenuContext"));
   }
 
   Editor.init();
@@ -1890,8 +1954,7 @@ function createSubMenuHTML(divId, items) {
 
 function json2html(json) {
   let obj = JSON.parse(json);
-  let contextMenus = obj.menus; // TODO make these their own functions
-
+  let contextMenus = obj.menus;
   let header = document.createElement("div");
   let fox = document.createElement("img");
   let hr = document.createElement("hr");
@@ -1971,4 +2034,4 @@ function createMenuURL() {
   }));
 }
 
-},{"./editor":4}]},{},[5]);
+},{"./editor":5}]},{},[6]);

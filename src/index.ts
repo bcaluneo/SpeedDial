@@ -1,5 +1,6 @@
 import * as Parser from "./parser";
 import * as Editor from "./editor";
+import * as Dial from "./dial";
 import * as Menu from "./menu";
 
 import { setClock } from "./clock";
@@ -11,6 +12,7 @@ const contextMenu = document.getElementById("context-menu");
 setClock();
 
 Parser.initMenu();
+Dial.initGrid();
 
 // Overwrites the default right-click handler to display my custom menu.
 document.addEventListener("contextmenu", (event) => {
@@ -18,9 +20,14 @@ document.addEventListener("contextmenu", (event) => {
   if (Editor.isEditing()) return;
 
   Menu.hideAllMenus();
-  contextMenu.style.top = `${event.clientY}px`;
-  contextMenu.style.left = `${event.clientX}px`;
-  contextMenu.classList.add("visible");
+
+  if ((event.target as HTMLElement).className == "grid-item") {
+
+  } else {
+    contextMenu.style.top = `${event.clientY}px`;
+    contextMenu.style.left = `${event.clientX}px`;
+    contextMenu.classList.add("visible");
+  }
 });
 
 document.addEventListener("click", (event: MouseEvent) => {

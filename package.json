@@ -13,7 +13,8 @@
     "browserify": "^17.0.0",
     "esmify": "^2.1.1",
     "express": "^4.17.3",
-    "random-seed": "^0.3.0"
+    "random-seed": "^0.3.0",
+    "uuid": "^9.0.0"
   },
   "description": "",
   "devDependencies": {

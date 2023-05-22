@@ -20,16 +20,16 @@ class ItemObject {
 };
 
 export function initMenu(): void {
-  if (localStorage.getItem("swamplinks") == null) {
+  if (localStorage.getItem("MenuContext") == null) {
     fetch('public/swamplinks.json')
       .then(response => response.text())
       .then(responseText => {
         let json = JSON.parse(responseText);
-        localStorage.setItem("swamplinks", JSON.stringify(json));
-        json2html(localStorage.getItem("swamplinks"));
+        localStorage.setItem("MenuContext", JSON.stringify(json));
+        json2html(localStorage.getItem("MenuContext"));
       });
   } else {
-    json2html(localStorage.getItem("swamplinks"));
+    json2html(localStorage.getItem("MenuContext"));
   }
 
   Editor.init();
@@ -106,8 +106,6 @@ export function createSubMenuHTML(divId: string, items: ItemObject[]): HTMLEleme
 export function json2html(json: string): void {
   let obj: MenuJson = JSON.parse(json);
   let contextMenus: MenuObject[] = obj.menus;
-
-  // TODO make these their own functions
 
   let header: HTMLDivElement = document.createElement("div") as HTMLDivElement;
   let fox: HTMLImageElement = document.createElement("img") as HTMLImageElement;

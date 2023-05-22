@@ -18,17 +18,17 @@ class ItemObject {
 }
 ;
 export function initMenu() {
-    if (localStorage.getItem("swamplinks") == null) {
+    if (localStorage.getItem("MenuContext") == null) {
         fetch('public/swamplinks.json')
             .then(response => response.text())
             .then(responseText => {
             let json = JSON.parse(responseText);
-            localStorage.setItem("swamplinks", JSON.stringify(json));
-            json2html(localStorage.getItem("swamplinks"));
+            localStorage.setItem("MenuContext", JSON.stringify(json));
+            json2html(localStorage.getItem("MenuContext"));
         });
     }
     else {
-        json2html(localStorage.getItem("swamplinks"));
+        json2html(localStorage.getItem("MenuContext"));
     }
     Editor.init();
     document.getElementById("editor-control-edit").addEventListener("dragstart", Editor.onDragItem);
@@ -95,7 +95,6 @@ export function createSubMenuHTML(divId, items) {
 export function json2html(json) {
     let obj = JSON.parse(json);
     let contextMenus = obj.menus;
-    // TODO make these their own functions
     let header = document.createElement("div");
     let fox = document.createElement("img");
     let hr = document.createElement("hr");
